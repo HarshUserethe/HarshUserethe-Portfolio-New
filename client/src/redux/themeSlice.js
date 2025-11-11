@@ -1,0 +1,39 @@
+import { createSlice } from '@reduxjs/toolkit';
+
+const getStyles = (mode) => ({
+  mainTheme: {
+    backgroundColor: mode === 'dark' ? "#0a0b0c" : "#f6f9fb",
+    color: mode === 'dark' ? "#fff" : "#000"
+  },
+  activeClass: {
+    activeColor: mode === 'dark' ? "#fff" : "#000",
+    nonActiveColor: mode === 'dark' ? "#5d5d68" : "gray"
+  },
+  icon: {
+    color: mode === 'dark' ? "#fff" : "#000"
+  }
+});
+
+const initialMode = localStorage.getItem('theme') || 'dark';
+
+const initialState = {
+  mode: initialMode,
+  styles: getStyles(initialMode),
+};
+
+const themeSlice = createSlice({
+  name: 'theme',
+  initialState,
+  reducers: {
+    toggleTheme: (state) => {
+      state.mode = state.mode === 'dark' ? 'light' : 'dark';
+      localStorage.setItem('theme', state.mode);
+    },
+    setStyles: (state, action) => {
+      state.styles = action.payload;
+    },
+  },
+});
+
+export const { toggleTheme, setStyles } = themeSlice.actions;
+export default themeSlice.reducer;

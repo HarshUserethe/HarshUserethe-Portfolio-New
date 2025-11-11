@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'clash_display';
+  src: url('/client/src/assets/fonts/ClashDisplay-Regular.otf');
+}
+
+.main{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+.inner-wrapper{
+    width: 85%;
+    margin-top: 8%;
+   
+}
+.headline{
+    font-family: 'clash_display' !important;
+}
+ 
+.css-u64c8x-MuiButtonBase-root-MuiButton-root{
+    border-color: #fff !important;
+    color: #fff !important;
+    text-transform: capitalize !important;
+    width: 40% !important;
+    border-radius: 500px !important;
+}
+
+@keyframes wave {
+  0% { transform: rotate(0deg); }
+  10% { transform: rotate(14deg); }
+  20% { transform: rotate(-8deg); }
+  30% { transform: rotate(14deg); }
+  40% { transform: rotate(-4deg); }
+  50% { transform: rotate(10deg); }
+  60% { transform: rotate(0deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.hand-wave {
+  display: inline-block;
+  transform-origin: 70% 70%; /* pivot around the base of the hand */
+  animation: wave 2.5s infinite;
+}
+
+ 
+@media (max-width: 1028px) and (min-width: 600px) {
+ .inner-wrapper{
+   
+    margin-top:  15%;
+}
+} 
+
+@media (max-width: 599px) and (min-width: 500px) {
+ .inner-wrapper{
+    width: 100%;
+    margin-top:  18%;
+}
+} 
+
+@media (max-width: 499px) and (min-width: 300px) {
+ .inner-wrapper{
+    width: 100%;
+    margin-top:  24%;
+}
+} 
