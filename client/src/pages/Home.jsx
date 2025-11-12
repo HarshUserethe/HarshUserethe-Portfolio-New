@@ -158,18 +158,18 @@ const imageLogos = [
       {/* Logos Animation Container */}
       <Box className="emp-space-divider"></Box>
     </Box>
-     {/* <LogoLoop
-      logos={techLogos}
-        speed={120}
+     <LogoLoop
+        logos={techLogos}
+        speed={100}
         direction="left"
-        logoHeight={48}
+        logoHeight={100}
         gap={40}
         hoverSpeed={0}
         scaleOnHover
         fadeOut
-        fadeOutColor="#ffffff"
-        ariaLabel="Technology partners" 
-     /> */}
+        fadeOutColor="#0a0b0c"
+        ariaLabel="Technology partners"
+      />
    </>
   );
 };

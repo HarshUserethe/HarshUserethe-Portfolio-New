@@ -1,3 +1,4 @@
+@import "tailwindcss";
 @font-face {
   font-family: 'default_fonts_a';
   src: url('/client/src/assets/fonts/fonts_a.ttf') format('truetype');
