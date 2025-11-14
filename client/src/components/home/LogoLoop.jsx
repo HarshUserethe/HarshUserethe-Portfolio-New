@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 import { LuSparkle } from "react-icons/lu";
+import { useSelector } from "react-redux";
 
 const ANIMATION_CONFIG = {
   SMOOTH_TAU: 0.25,
   MIN_COPIES: 2,
   COPY_HEADROOM: 2,
 };
+
+
 
 const toCssLength = (value) =>
   typeof value === "number" ? `${value}px` : value ?? undefined;
@@ -181,6 +184,8 @@ export const LogoLoop = memo(
     className,
     style,
   }) => {
+    const styles = useSelector((state) => state.theme.styles); // Get styles from Redux
+
     const containerRef = useRef(null);
     const trackRef = useRef(null);
     const seqRef = useRef(null);
@@ -359,7 +364,7 @@ export const LogoLoop = memo(
             <div
              style={{
               fontSize:"4vw",
-              color:"#ffffff67",
+              color:"#9f9f9fff",
               marginLeft:"4vw"
             
             }}
@@ -368,7 +373,7 @@ export const LogoLoop = memo(
              <div
             style={{
               fontSize:"4vw",
-              color:"#ffffff67",
+              color:"#9f9f9fff",
             }}
             >{item.alt}</div>
            </div>
@@ -503,7 +508,7 @@ export const LogoLoop = memo(
         )}
 
         <div
-        style={{backgroundColor:"#0a0b0c"}}
+        style={{backgroundColor: styles?.mainTheme?.backgroundColor}}
           className={cx(
             "flex will-change-transform select-none relative z-0",
             "motion-reduce:transform-none",

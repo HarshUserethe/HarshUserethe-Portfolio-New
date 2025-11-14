@@ -4,8 +4,13 @@ import { Box, Button, ListItem, Typography } from "@mui/material";
 import { LuArrowUpRight, LuHand } from "react-icons/lu";
 import LogoLoop from "../components/home/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
+import { useSelector } from "react-redux";
 
 const Home = () => {
+
+  const styles = useSelector((state) => state.theme.styles); // Get styles from Redux
+  const themeValues = useSelector((state) => state.theme);
+
   const techLogos = [
   { node: <SiReact />, title: "React", href: "https://react.dev" },
   { node: <SiNextdotjs />, title: "Next.js", href: "https://nextjs.org" },
@@ -20,13 +25,15 @@ const imageLogos = [
   {text:"Backend", src: "", alt: "System", href: "https://company3.com" },
 ];
 
+const buttonClass = 'knowme-button ' + (themeValues.mode === 'light' ? 'light-mode' : 'dark-mode');
 
+ 
   return (
    <>
     <Box
       className="main"
       sx={{
-        backgroundColor: "#0a0b0c",
+        backgroundColor: styles?.mainTheme?.backgroundColor,
         display: "flex",
         flexDirection: "column",
       }}
@@ -36,7 +43,7 @@ const imageLogos = [
           variant="h1"
           sx={{
             fontSize: "16px",
-            color: "#fff",
+            color: styles?.mainTheme?.color,
             display: "flex",
             justifyContent: "start",
             alignItems: "center",
@@ -55,7 +62,7 @@ const imageLogos = [
           variant="h1"
           sx={{
             fontSize: "72px",
-            color: "#fff",
+            color: styles?.mainTheme?.color,
             width: "70%",
             lineHeight: "75px",
             marginTop: "2%",
@@ -145,9 +152,10 @@ const imageLogos = [
               business goals.
             </Typography>
             <Button
+              
               variant="outlined"
               color="primary"
-              className="knowme-button"
+              className={buttonClass}               
             >
               Know Me Better
             </Button>
@@ -156,7 +164,12 @@ const imageLogos = [
       </Box>
 
       {/* Logos Animation Container */}
-      <Box className="emp-space-divider"></Box>
+      <Box className="emp-space-divider"
+      style={{
+        backgroundColor:styles?.mainTheme?.backgroundColor,
+        borderColor:themeValues.mode === 'light' ? '#dfdfdf' : '#262626'
+      }}
+      ></Box>
     </Box>
      <LogoLoop
         logos={imageLogos}
@@ -167,7 +180,7 @@ const imageLogos = [
         hoverSpeed={0}
         scaleOnHover
         fadeOut
-        fadeOutColor="#0a0b0c"
+        fadeOutColor={styles?.mainTheme?.backgroundColor}
         ariaLabel="Technology partners"
       />
    </>
