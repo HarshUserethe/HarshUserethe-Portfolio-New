@@ -18,6 +18,10 @@ body {
   font-family: 'default_fonts_a';
 }
 
+::selection {
+  background: greenyellow;   /* highlight color */
+  color: #000;           /* text color */
+}
 
 
 :root{
@@ -35,4 +39,8 @@ html, body{
   height: 100%;
   width: 100%;
   background-color: var(--bgColor);
+}
+
+.pointer-events-none {
+  width: 25% !important;
 }

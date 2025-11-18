@@ -5,6 +5,7 @@ import { LuArrowUpRight, LuHand } from "react-icons/lu";
 import LogoLoop from "../components/home/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import { useSelector } from "react-redux";
+import AboutMe from "../components/home/AboutMe";
 
 const Home = () => {
 
@@ -183,6 +184,7 @@ const buttonClass = 'knowme-button ' + (themeValues.mode === 'light' ? 'light-mo
         fadeOutColor={styles?.mainTheme?.backgroundColor}
         ariaLabel="Technology partners"
       />
+      <AboutMe styles={styles} />
    </>
   );
 };

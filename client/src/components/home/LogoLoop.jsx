@@ -364,8 +364,8 @@ export const LogoLoop = memo(
            <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"4vw"}}>
             <div
              style={{
-              fontSize:"4vw",
-              color:"#575757ff",
+              fontSize:"48px",
+              color:"#3d3d3dff",
               marginLeft:"4vw"
             
             }}
@@ -374,8 +374,8 @@ export const LogoLoop = memo(
              <div
              className="scroll-text"
             style={{
-              fontSize:"4vw",
-              color:"#575757ff",
+              fontSize:"48px",
+              color:"#3d3d3dff",
             }}
             >{item.alt}</div>
            </div>
