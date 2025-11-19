@@ -7,7 +7,7 @@ import { LuSparkle } from 'react-icons/lu'
 const AboutMe = ({styles}) => {
     console.log(styles)
   return (
-    <Box className="main" style={{backgroundColor:styles?.mainTheme?.backgroundColor, display:"flex", gap:"25px", paddingTop:"15%", flexDirection:"column"}} >
+    <Box className="main" style={{backgroundColor:styles?.mainTheme?.backgroundColor, display:"flex", gap:"25px", paddingTop:"10%", flexDirection:"column"}} >
         <Box sx={{display:"flex", gap:"10px", }}>
              <LuSparkle color='greenyellow' />
         <Typography sx={{color:"greenyellow", fontSize:"16px", textTransform:"uppercase"}} variant="h3" color="initial">About Me</Typography>
