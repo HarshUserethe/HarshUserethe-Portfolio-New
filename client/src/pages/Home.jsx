@@ -7,6 +7,7 @@ import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/s
 import { useSelector } from "react-redux";
 import AboutMe from "../components/home/AboutMe";
 import MyProjects from "../components/home/MyProjects";
+import AreaOfExpertise from "../components/home/AreaOfExpertise";
 
 const Home = () => {
 
@@ -187,6 +188,7 @@ const buttonClass = 'knowme-button ' + (themeValues.mode === 'light' ? 'light-mo
       />
       <AboutMe styles={styles} />
       <MyProjects />
+      <AreaOfExpertise />
    </>
   );
 };
