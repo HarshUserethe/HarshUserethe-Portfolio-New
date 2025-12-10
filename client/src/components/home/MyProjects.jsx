@@ -126,7 +126,7 @@ const MyProjects = () => {
               </div>
 
               {/* TEXT SECTION */}
-              <div className="mt-4 space-y-2">
+              <div className="mt-4 space-y-2 inner-card-lable">
                 <h5 className="text-white text-xl"
                 style={{color: styles?.mainTheme?.color}}
                 >{p.title}</h5>

@@ -2,7 +2,7 @@ import React from "react";
 import "../assets/styles/home.css";
 import { Box, Button, ListItem, Typography } from "@mui/material";
 import { LuArrowUpRight, LuHand } from "react-icons/lu";
-import LogoLoop from "../components/home/LogoLoop";
+import LogoLoop from "../components/shared/LogoLoop";
 import { SiReact, SiNextdotjs, SiTypescript, SiTailwindcss } from 'react-icons/si';
 import { useSelector } from "react-redux";
 import AboutMe from "../components/home/AboutMe";
