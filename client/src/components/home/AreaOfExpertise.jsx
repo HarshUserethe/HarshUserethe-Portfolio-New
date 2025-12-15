@@ -135,7 +135,7 @@ const AreaOfExpertise = () => {
           sx={{
             width: "625px",
             height: "355px",
-            backgroundColor: "#000",
+            backgroundColor: "#0000",
             borderRadius: "25px",
           }}
         />
