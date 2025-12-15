@@ -3,7 +3,8 @@ import { createSlice } from '@reduxjs/toolkit';
 const getStyles = (mode) => ({
   mainTheme: {
     backgroundColor: mode === 'dark' ? "#0a0b0c" : "#f6f9fb",
-    color: mode === 'dark' ? "#fff" : "#000"
+    color: mode === 'dark' ? "#fff" : "#000",
+    hoverColor: mode === 'dark' ? "#222" : "#eeeeeeff",
   },
   activeClass: {
     activeColor: mode === 'dark' ? "#fff" : "#000",

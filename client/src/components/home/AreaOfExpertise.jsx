@@ -96,7 +96,7 @@ const AreaOfExpertise = () => {
         sx={{
           display: "flex",
           width: "100%",
-          backgroundColor: "#000",
+          backgroundColor: styles?.mainTheme?.backgroundColor,
           justifyContent: "center",
           alignItems: "center",
           gap: 8,
@@ -107,7 +107,7 @@ const AreaOfExpertise = () => {
           sx={{
             width: "625px",
             height: "355px",
-            backgroundColor: "#000",
+            backgroundColor: styles?.mainTheme?.backgroundColor,
             display: "flex",
             justifyContent: "space-evenly",
             alignItems: "center",
@@ -115,13 +115,15 @@ const AreaOfExpertise = () => {
           }}
         >
           {services.map((item, index) => (
-            <Box key={index} onClick={() => handleServiceCard(item)}>
+            <Box sx={{backgroundColor: styles?.mainTheme?.backgroundColor}} key={index} onClick={() => handleServiceCard(item)}>
               <ServiceCard
                 key={index}
                 icon={item.icon}
                 title={item.title}
                 description={item.description}
                 id={item.id}
+                themeColor={styles?.mainTheme}
+                
               />
             </Box>
           ))}

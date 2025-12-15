@@ -6,7 +6,7 @@ import { LuChevronDown } from "react-icons/lu";
 let globalExpandedId = null;
 let globalSetters = new Set();
 
-const ServiceCard = ({ icon: Icon, title, description, id }) => {
+const ServiceCard = ({ icon: Icon, title, description, id, themeColor }) => {
   const [expandedId, setExpandedId] = useState(null);
 
   // Register this component's setter
@@ -37,14 +37,14 @@ const ServiceCard = ({ icon: Icon, title, description, id }) => {
   return (
     <Box
       sx={{
-        backgroundColor: "#111116",
+        backgroundColor: themeColor?.backgroundColor,
         borderRadius: "8px",
         padding: "20px 60px",
         marginBottom: "16px",
         cursor: "pointer",
         transition: "all 0.3s ease",
         "&:hover": {
-          backgroundColor: "#222",
+          backgroundColor: themeColor?.hoverColor,
         },
       }}
     >
@@ -57,11 +57,11 @@ const ServiceCard = ({ icon: Icon, title, description, id }) => {
         }}
       >
         <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-          <Icon size={24} color="#fff" />
+          <Icon size={24} color={themeColor?.color} />
           <Typography
             variant="h6"
             sx={{
-              color: "#fff",
+              color: themeColor?.color,
               fontSize: "16px",
               fontWeight: 400,
             }}

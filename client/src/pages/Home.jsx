@@ -189,6 +189,9 @@ const buttonClass = 'knowme-button ' + (themeValues.mode === 'light' ? 'light-mo
       <AboutMe styles={styles} />
       <MyProjects />
       <AreaOfExpertise />
+      <LogoLoop
+      logos={imageLogos}
+      />
    </>
   );
 };
