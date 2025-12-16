@@ -93,6 +93,7 @@ const AreaOfExpertise = () => {
 
       {/* Content Part */}
       <Box
+        className="areaOfExpContentWrapper"
         sx={{
           display: "flex",
           width: "100%",

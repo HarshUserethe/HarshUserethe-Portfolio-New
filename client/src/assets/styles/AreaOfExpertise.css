@@ -9,7 +9,7 @@
     padding-left: 16px !important;
  }
  .css-1kfn0wj{
-    flex-direction: column;
+    flex-direction: column !important;
  }
  .css-1hv857h{
     width: 375px !important;
@@ -34,6 +34,16 @@
 .css-1f52zvs {
     padding: 16px;
 }
- 
+
+.css-285qgi{
+    flex-direction: column;
+    padding: 20px;
+}
+.css-1qxez29{
+    width: 400px !important;
+}
+.css-1yxmrjy{
+    margin-top: 45px !important;
+}
  
 } 
