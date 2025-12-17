@@ -9,7 +9,7 @@ const AreaOfExpertise = () => {
   const styles = useSelector((state) => state.theme.styles); // Get styles from Redux
   const themeValues = useSelector((state) => state.theme);
   const [dynamicImage, setDynamicImage] = useState(
-    "https://plus.unsplash.com/premium_photo-1696824306557-bf54fc73e2fb?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    "https://plus.unsplash.com/premium_photo-1696824306557-bf54fc73e2fb?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
   );
 
   const services = [
@@ -116,7 +116,11 @@ const AreaOfExpertise = () => {
           }}
         >
           {services.map((item, index) => (
-            <Box sx={{backgroundColor: styles?.mainTheme?.backgroundColor}} key={index} onClick={() => handleServiceCard(item)}>
+            <Box
+              sx={{ backgroundColor: styles?.mainTheme?.backgroundColor }}
+              key={index}
+              onClick={() => handleServiceCard(item)}
+            >
               <ServiceCard
                 key={index}
                 icon={item.icon}
@@ -124,7 +128,6 @@ const AreaOfExpertise = () => {
                 description={item.description}
                 id={item.id}
                 themeColor={styles?.mainTheme}
-                
               />
             </Box>
           ))}

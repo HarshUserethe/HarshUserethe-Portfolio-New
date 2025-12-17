@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 import { LuSparkle } from "react-icons/lu";
 import { useSelector } from "react-redux";
-import "../../assets/styles/LogoScroller.css";
+import "../../assets/styles/ChipsLoop.css";
 import { Chip, Avatar } from "@mui/material";
 
 const ANIMATION_CONFIG = {
@@ -11,7 +11,7 @@ const ANIMATION_CONFIG = {
 };
 
 const toCssLength = (value) =>
-  typeof value === "number" ? `${value}px` : value ?? undefined;
+  typeof value === "number" ? `${value}px` : (value ?? undefined);
 
 const cx = (...parts) => parts.filter(Boolean).join(" ");
 
@@ -81,7 +81,7 @@ const useAnimationLoop = (
   seqHeight,
   isHovered,
   hoverSpeed,
-  isVertical
+  isVertical,
 ) => {
   const rafRef = useRef(null);
   const lastTimestampRef = useRef(null);
@@ -252,7 +252,7 @@ export const ChipsLoop = memo(
     useResizeObserver(
       updateDimensions,
       [containerRef, seqRef],
-      [logos, gap, logoHeight, isVertical]
+      [logos, gap, logoHeight, isVertical],
     );
 
     useImageLoader(seqRef, updateDimensions, [
@@ -269,7 +269,7 @@ export const ChipsLoop = memo(
       seqHeight,
       isHovered,
       effectiveHoverSpeed,
-      isVertical
+      isVertical,
     );
 
     const cssVariables = useMemo(
@@ -278,7 +278,7 @@ export const ChipsLoop = memo(
         "--logoloop-logoHeight": `${logoHeight}px`,
         ...(fadeOutColor && { "--logoloop-fadeColor": fadeOutColor }),
       }),
-      [gap, logoHeight, fadeOutColor]
+      [gap, logoHeight, fadeOutColor],
     );
 
     const rootClasses = useMemo(
@@ -293,9 +293,9 @@ export const ChipsLoop = memo(
           "[--logoloop-fadeColorAuto:#ffffff]",
           "dark:[--logoloop-fadeColorAuto:#0b0b0b]",
           scaleOnHover && "py-[calc(var(--logoloop-logoHeight)*0.1)]",
-          className
+          className,
         ),
-      [isVertical, scaleOnHover, className]
+      [isVertical, scaleOnHover, className],
     );
 
     const handleMouseEnter = useCallback(() => {
@@ -339,14 +339,13 @@ export const ChipsLoop = memo(
             role="list"
             aria-hidden={copyIndex > 0}
             ref={copyIndex === 0 ? seqRef : undefined}
-          
           >
             {logos.map((item, itemIndex) =>
-              renderLogoItem(item, `${copyIndex}-${itemIndex}`)
+              renderLogoItem(item, `${copyIndex}-${itemIndex}`),
             )}
           </ul>
         )),
-      [copyCount, logos, renderLogoItem, isVertical]
+      [copyCount, logos, renderLogoItem, isVertical],
     );
 
     const containerStyle = useMemo(
@@ -355,11 +354,11 @@ export const ChipsLoop = memo(
           ? toCssLength(width) === "100%"
             ? undefined
             : toCssLength(width)
-          : toCssLength(width) ?? "100%",
+          : (toCssLength(width) ?? "100%"),
         ...cssVariables,
         ...style,
       }),
-      [width, cssVariables, style, isVertical]
+      [width, cssVariables, style, isVertical],
     );
 
     return (
@@ -381,7 +380,7 @@ export const ChipsLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-x-0 top-0 z-10",
                     "h-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_bottom,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(255, 0, 0, 0)_100%)]"
+                    "bg-[linear-gradient(to_bottom,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(255, 0, 0, 0)_100%)]",
                   )}
                 />
                 <div
@@ -389,7 +388,7 @@ export const ChipsLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-x-0 bottom-0 z-10",
                     "h-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_top,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_top,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
               </>
@@ -400,7 +399,7 @@ export const ChipsLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-y-0 left-0 z-10",
                     "w-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_right,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_right,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
                 <div
@@ -408,7 +407,7 @@ export const ChipsLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-y-0 right-0 z-10",
                     "w-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_left,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_left,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
               </>
@@ -421,7 +420,7 @@ export const ChipsLoop = memo(
           className={cx(
             "flex will-change-transform select-none relative z-0",
             "motion-reduce:transform-none",
-            isVertical ? "flex-col h-max w-full" : "flex-row w-max"
+            isVertical ? "flex-col h-max w-full" : "flex-row w-max",
           )}
           ref={trackRef}
           onMouseEnter={handleMouseEnter}
@@ -431,7 +430,7 @@ export const ChipsLoop = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 ChipsLoop.displayName = "ChipsLoops";

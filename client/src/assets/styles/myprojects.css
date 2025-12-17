@@ -14,17 +14,17 @@
 }
 
 @media (max-width: 499px) and (min-width: 300px) {
-.css-etjr3t {
-    padding-left: 0px !important; 
+  .css-etjr3t {
+    padding-left: 0px !important;
     padding-right: 0px !important;
     padding-bottom: 64px;
     background-color: #0a0b0c;
-}
-.inner-card-lable{
-    padding-left:  30px; 
+  }
+  .inner-card-lable {
+    padding-left: 30px;
     padding-right: 30px;
-}
-.prj-cards{
-  padding: 14px !important;
-}
+  }
+  .prj-cards {
+    padding: 14px !important;
+  }
 }

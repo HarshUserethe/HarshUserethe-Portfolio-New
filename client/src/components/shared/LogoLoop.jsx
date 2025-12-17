@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState, memo } from "react";
 import { LuSparkle } from "react-icons/lu";
 import { useSelector } from "react-redux";
-import '../../assets/styles/LogoScroller.css';
+import "../../assets/styles/LogoScroller.css";
 
 const ANIMATION_CONFIG = {
   SMOOTH_TAU: 0.25,
@@ -9,10 +9,8 @@ const ANIMATION_CONFIG = {
   COPY_HEADROOM: 2,
 };
 
-
-
 const toCssLength = (value) =>
-  typeof value === "number" ? `${value}px` : value ?? undefined;
+  typeof value === "number" ? `${value}px` : (value ?? undefined);
 
 const cx = (...parts) => parts.filter(Boolean).join(" ");
 
@@ -82,7 +80,7 @@ const useAnimationLoop = (
   seqHeight,
   isHovered,
   hoverSpeed,
-  isVertical
+  isVertical,
 ) => {
   const rafRef = useRef(null);
   const lastTimestampRef = useRef(null);
@@ -253,7 +251,7 @@ export const LogoLoop = memo(
     useResizeObserver(
       updateDimensions,
       [containerRef, seqRef],
-      [logos, gap, logoHeight, isVertical]
+      [logos, gap, logoHeight, isVertical],
     );
 
     useImageLoader(seqRef, updateDimensions, [
@@ -270,7 +268,7 @@ export const LogoLoop = memo(
       seqHeight,
       isHovered,
       effectiveHoverSpeed,
-      isVertical
+      isVertical,
     );
 
     const cssVariables = useMemo(
@@ -279,7 +277,7 @@ export const LogoLoop = memo(
         "--logoloop-logoHeight": `${logoHeight}px`,
         ...(fadeOutColor && { "--logoloop-fadeColor": fadeOutColor }),
       }),
-      [gap, logoHeight, fadeOutColor]
+      [gap, logoHeight, fadeOutColor],
     );
 
     const rootClasses = useMemo(
@@ -294,9 +292,9 @@ export const LogoLoop = memo(
           "[--logoloop-fadeColorAuto:#ffffff]",
           "dark:[--logoloop-fadeColorAuto:#0b0b0b]",
           scaleOnHover && "py-[calc(var(--logoloop-logoHeight)*0.1)]",
-          className
+          className,
         ),
-      [isVertical, scaleOnHover, className]
+      [isVertical, scaleOnHover, className],
     );
 
     const handleMouseEnter = useCallback(() => {
@@ -316,7 +314,7 @@ export const LogoLoop = memo(
                 isVertical
                   ? "mb-[var(--logoloop-gap)]"
                   : "mr-[var(--logoloop-gap)]",
-                scaleOnHover && "overflow-visible group/item"
+                scaleOnHover && "overflow-visible group/item",
               )}
               key={key}
               role="listitem"
@@ -334,21 +332,21 @@ export const LogoLoop = memo(
               "inline-flex items-center",
               "motion-reduce:transition-none",
               scaleOnHover &&
-                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120"
+                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120",
             )}
             aria-hidden={!!item.href && !item.ariaLabel}
           >
             {item.node}
           </span>
-        ) : (
-          item.src.length > 0 ? ( <img
+        ) : item.src.length > 0 ? (
+          <img
             className={cx(
               "h-[var(--logoloop-logoHeight)] w-auto block object-contain",
               "[-webkit-user-drag:none] pointer-events-none",
               "[image-rendering:-webkit-optimize-contrast]",
               "motion-reduce:transition-none",
               scaleOnHover &&
-                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120"
+                "transition-transform duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] group-hover/item:scale-120",
             )}
             src={item.src}
             srcSet={item.srcSet}
@@ -360,31 +358,41 @@ export const LogoLoop = memo(
             loading="lazy"
             decoding="async"
             draggable={false}
-          />) : (
-           <div style={{display:"flex", justifyContent:"center", alignItems:"center", gap:"4vw"}}>
-            <div
-             style={{
-              fontSize:"48px",
-              color:"#3d3d3dff",
-              marginLeft:"4vw"
-            
-            }}
-            ><LuSparkle /> </div>
-
-             <div
-             className="scroll-text"
+          />
+        ) : (
+          <div
             style={{
-              fontSize:"48px",
-              color:"#3d3d3dff",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              gap: "4vw",
             }}
-            >{item.alt}</div>
-           </div>
-          )
+          >
+            <div
+              style={{
+                fontSize: "48px",
+                color: "#3d3d3dff",
+                marginLeft: "4vw",
+              }}
+            >
+              <LuSparkle />{" "}
+            </div>
+
+            <div
+              className="scroll-text"
+              style={{
+                fontSize: "48px",
+                color: "#3d3d3dff",
+              }}
+            >
+              {item.alt}
+            </div>
+          </div>
         );
 
         const itemAriaLabel = isNodeItem
-          ? item.ariaLabel ?? item.title
-          : item.alt ?? item.title;
+          ? (item.ariaLabel ?? item.title)
+          : (item.alt ?? item.title);
 
         const inner = item.href ? (
           <a
@@ -392,7 +400,7 @@ export const LogoLoop = memo(
               "inline-flex items-center no-underline rounded",
               "transition-opacity duration-200 ease-linear",
               "hover:opacity-80",
-              "focus-visible:outline focus-visible:outline-current focus-visible:outline-offset-2"
+              "focus-visible:outline focus-visible:outline-current focus-visible:outline-offset-2",
             )}
             href={item.href}
             aria-label={itemAriaLabel || "logo link"}
@@ -412,7 +420,7 @@ export const LogoLoop = memo(
               isVertical
                 ? "mb-[var(--logoloop-gap)]"
                 : "mr-[var(--logoloop-gap)]",
-              scaleOnHover && "overflow-visible group/item"
+              scaleOnHover && "overflow-visible group/item",
             )}
             key={key}
             role="listitem"
@@ -421,7 +429,7 @@ export const LogoLoop = memo(
           </li>
         );
       },
-      [isVertical, scaleOnHover, renderItem]
+      [isVertical, scaleOnHover, renderItem],
     );
 
     const logoLists = useMemo(
@@ -435,11 +443,11 @@ export const LogoLoop = memo(
             ref={copyIndex === 0 ? seqRef : undefined}
           >
             {logos.map((item, itemIndex) =>
-              renderLogoItem(item, `${copyIndex}-${itemIndex}`)
+              renderLogoItem(item, `${copyIndex}-${itemIndex}`),
             )}
           </ul>
         )),
-      [copyCount, logos, renderLogoItem, isVertical]
+      [copyCount, logos, renderLogoItem, isVertical],
     );
 
     const containerStyle = useMemo(
@@ -448,11 +456,11 @@ export const LogoLoop = memo(
           ? toCssLength(width) === "100%"
             ? undefined
             : toCssLength(width)
-          : toCssLength(width) ?? "100%",
+          : (toCssLength(width) ?? "100%"),
         ...cssVariables,
         ...style,
       }),
-      [width, cssVariables, style, isVertical]
+      [width, cssVariables, style, isVertical],
     );
 
     return (
@@ -474,7 +482,7 @@ export const LogoLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-x-0 top-0 z-10",
                     "h-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_bottom,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_bottom,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
                 <div
@@ -482,7 +490,7 @@ export const LogoLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-x-0 bottom-0 z-10",
                     "h-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_top,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_top,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
               </>
@@ -493,7 +501,7 @@ export const LogoLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-y-0 left-0 z-10",
                     "w-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_right,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_right,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
                 <div
@@ -501,7 +509,7 @@ export const LogoLoop = memo(
                   className={cx(
                     "pointer-events-none absolute inset-y-0 right-0 z-10",
                     "w-[clamp(24px,8%,120px)]",
-                    "bg-[linear-gradient(to_left,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]"
+                    "bg-[linear-gradient(to_left,var(--logoloop-fadeColor,var(--logoloop-fadeColorAuto))_0%,rgba(0,0,0,0)_100%)]",
                   )}
                 />
               </>
@@ -510,11 +518,11 @@ export const LogoLoop = memo(
         )}
 
         <div
-        style={{backgroundColor: styles?.mainTheme?.backgroundColor}}
+          style={{ backgroundColor: styles?.mainTheme?.backgroundColor }}
           className={cx(
             "flex will-change-transform select-none relative z-0",
             "motion-reduce:transform-none",
-            isVertical ? "flex-col h-max w-full" : "flex-row w-max"
+            isVertical ? "flex-col h-max w-full" : "flex-row w-max",
           )}
           ref={trackRef}
           onMouseEnter={handleMouseEnter}
@@ -524,7 +532,7 @@ export const LogoLoop = memo(
         </div>
       </div>
     );
-  }
+  },
 );
 
 LogoLoop.displayName = "LogoLoop";

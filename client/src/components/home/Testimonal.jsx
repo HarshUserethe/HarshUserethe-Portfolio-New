@@ -17,14 +17,14 @@ const Testimonal = () => {
         sx={{
           backgroundColor: styles?.mainTheme?.backgroundColor,
           padding: "90px",
-          paddingTop:  "200px",
-          display:"flex",
-          justifyContent:"start",
-          gap:20
+          paddingTop: "200px",
+          display: "flex",
+          justifyContent: "start",
+          gap: 20,
         }}
       >
         {/* first box */}
-        <Box sx={{width:"25%"}}>
+        <Box sx={{ width: "25%" }}>
           <Box sx={{ display: "flex", gap: "10px" }}>
             <LuSparkle color="greenyellow" />
             <Typography
@@ -56,10 +56,8 @@ const Testimonal = () => {
         </Box>
 
         {/* second box */}
-        <Box
-        sx={{width:"55%"}}
-        >
-            <TestimonialSlider />
+        <Box sx={{ width: "55%" }}>
+          <TestimonialSlider />
         </Box>
       </Box>
     </>
