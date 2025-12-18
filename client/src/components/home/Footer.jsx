@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 const Footer = () => {
+   const styles = useSelector((state) => state.theme.styles); 
+
   const handleContactClick = () => {
     // Add your contact action here
     console.log("Contact button clicked");
@@ -14,8 +17,8 @@ const Footer = () => {
   return (
     <footer
       style={{
-        backgroundColor: "#0a0a0a",
-        color: "#fff",
+        backgroundColor: styles?.mainTheme?.backgroundColor,
+        color: styles?.mainTheme?.color,
         padding: "80px 40px 40px",
         position: "relative",
         //   fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
@@ -45,6 +48,7 @@ const Footer = () => {
               borderRadius: "20px",
               marginBottom: "32px",
               backdropFilter: "blur(10px)",
+              border:"1px solid #6e6e6eff"
             }}
           >
             <div
@@ -59,7 +63,7 @@ const Footer = () => {
             <span
               style={{
                 fontSize: "14px",
-                color: "#e5e5e5",
+                color: styles?.mainTheme?.color,
               }}
             >
               Available for work
@@ -86,8 +90,8 @@ const Footer = () => {
             onClick={handleContactClick}
             style={{
               backgroundColor: "transparent",
-              color: "#fff",
-              border: "2px solid rgba(255, 255, 255, 0.2)",
+              color: styles?.mainTheme?.color,
+              border: "2px solid #6e6e6eff",
               padding: "14px 40px",
               fontSize: "16px",
               borderRadius: "30px",
@@ -95,15 +99,7 @@ const Footer = () => {
               transition: "all 0.3s ease",
               fontWeight: "500",
             }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor =
-                "rgba(255, 255, 255, 0.1)";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.4)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = "transparent";
-              e.currentTarget.style.borderColor = "rgba(255, 255, 255, 0.2)";
-            }}
+            
           >
             Contact Me
           </button>

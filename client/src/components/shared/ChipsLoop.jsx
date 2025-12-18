@@ -182,7 +182,7 @@ export const ChipsLoop = memo(
     renderItem,
     ariaLabel = "Partner logos",
     className,
-    style,
+    style
   }) => {
     const styles = useSelector((state) => state.theme.styles); // Get styles from Redux
 
@@ -318,11 +318,11 @@ export const ChipsLoop = memo(
           sx={{
             mr: 1,
             mb: isVertical ? 1 : 0,
-            backgroundColor: "#181820",
+            backgroundColor: styles?.mainTheme?.chipColor,
             fontWeight: 500,
-            boxShadow: "1px 1px 8px rgba(58, 58, 58, 1)",
-            color: "#fff",
-            border: "1px solid rgba(58, 58, 58, 1)",
+            boxShadow: "1px 1px 8px rgba(0, 0, 0, 0.07)",
+            color: styles?.mainTheme?.color,
+            border: styles?.mainTheme?.chipBorder,
             pl: 1,
             pr: 1,
           }}
