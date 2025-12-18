@@ -1,5 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
+import "../../assets/styles/footer.css";
 
 const Footer = () => {
    const styles = useSelector((state) => state.theme.styles); 
@@ -32,6 +33,7 @@ const Footer = () => {
       >
         {/* Main Content Section */}
         <div
+        className="footer-main-content"
           style={{
             textAlign: "center",
             marginBottom: "120px",

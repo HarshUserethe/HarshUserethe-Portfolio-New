@@ -47,6 +47,7 @@ const Header = () => {
       sx={{
         backgroundColor: styles.mainTheme.backgroundColor,
         color: styles.mainTheme.color,
+        zIndex:"99"
       }}
     >
       <Box
