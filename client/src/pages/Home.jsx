@@ -184,9 +184,10 @@ const Home = () => {
             variant="h1"
             sx={{
               fontSize: "72px",
+              fontWeight:"500 !important",
               color: styles?.mainTheme?.color,
-              width: "70%",
-              lineHeight: "75px",
+              width: "80%",
+              lineHeight: "72px",
               marginTop: "2%",
               marginBottom: "4%",
             }}

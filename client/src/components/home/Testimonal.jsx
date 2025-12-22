@@ -32,6 +32,7 @@ const Testimonal = () => {
                 color: "greenyellow",
                 fontSize: "16px",
                 textTransform: "uppercase",
+                
               }}
             >
               Testimonials
@@ -44,6 +45,7 @@ const Testimonal = () => {
               color: styles?.mainTheme?.color,
               fontSize: "48px",
               marginTop: "10px",
+              fontFamily: "clash_display",
             }}
           >
             What others say

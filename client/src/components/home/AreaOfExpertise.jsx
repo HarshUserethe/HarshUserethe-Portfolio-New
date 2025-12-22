@@ -80,6 +80,7 @@ const AreaOfExpertise = () => {
             color: styles?.mainTheme?.color,
             fontSize: "48px",
             marginTop: "10px",
+            fontFamily:"clash_display"
           }}
         >
           Areas of Expertise

@@ -77,6 +77,7 @@ const MyProjects = () => {
             color: styles?.mainTheme?.color,
             fontSize: "48px",
             marginTop: "10px",
+            fontFamily:"clash_display"
           }}
         >
           Selected Projects

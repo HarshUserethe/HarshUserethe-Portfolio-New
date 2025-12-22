@@ -80,6 +80,7 @@ const Footer = () => {
               lineHeight: "1.2",
               margin: "0 0 40px 0",
               letterSpacing: "-1px",
+              fontFamily: "clash_display",
             }}
           >
             Let's create your

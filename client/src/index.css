@@ -11,11 +11,11 @@
 
 @font-face {
   font-family: "clash_display";
-  src: url("/client/src/assets/fonts/ClashDisplay-Regular.otf");
+  src: url("../public/fonts/ClashDisplay-Medium.ttf");
 }
 
 body {
-  font-family: "default_fonts_a";
+  font-family: "clash_display";
 }
 
 ::selection {
