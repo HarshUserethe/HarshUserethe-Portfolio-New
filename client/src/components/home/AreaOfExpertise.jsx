@@ -70,6 +70,8 @@ const AreaOfExpertise = () => {
               fontSize: '16px',
               textTransform: 'uppercase',
             }}
+            variant="h3"
+            color="initial"
           >
             <ShinyText
               text="Speciality"

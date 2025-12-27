@@ -35,6 +35,8 @@ const Testimonal = () => {
                 fontSize: '16px',
                 textTransform: 'uppercase',
               }}
+              variant="h3"
+              color="initial"
             >
               <ShinyText
                 text="Testimonials"
